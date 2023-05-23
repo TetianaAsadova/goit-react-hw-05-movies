@@ -13,3 +13,21 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.layoutul {
+  display: flex;
+  justify-content: flex-start;
+  column-gap: 30px;
+  list-style: none;
+  
+  .active {
+      color: red;
+    }
+}
+
+.movie_info {
+  display: flex;
+  gap: 30px;
+}
+
+
