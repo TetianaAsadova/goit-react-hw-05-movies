@@ -14,20 +14,6 @@ code {
     monospace;
 }
 
-.layoutul {
-  display: flex;
-  justify-content: flex-start;
-  column-gap: 30px;
-  list-style: none;
-  
-  .active {
-      color: red;
-    }
+.active {
+  color: red;
 }
-
-.movie_info {
-  display: flex;
-  gap: 30px;
-}
-
-

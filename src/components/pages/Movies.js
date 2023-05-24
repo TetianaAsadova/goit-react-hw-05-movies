@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { ColorRing } from 'react-loader-spinner';
-import { Link, Outlet, useLocation, useParams, useSearchParams } from 'react-router-dom';
+import { useParams, useSearchParams, useLocation, Link, Outlet } from 'react-router-dom';
 
 const API_KEY = 'ad2e3abfb56d0bd03c35663dc9829f67';
 
@@ -65,7 +65,7 @@ const Movies = () => {
                         {movies.map(movie => (
                         <li key={movie.id}>
                             <Link to={`${movie.id}`} state={{ from: location }}>
-                            {movie.title}
+                             {movie.title}
                             </Link>
                         </li>
                         ))}

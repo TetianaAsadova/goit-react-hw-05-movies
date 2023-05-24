@@ -1,0 +1,8 @@
+.layoutul {
+    display: flex;
+    justify-content: flex-start;
+    column-gap: 30px;
+    list-style: none;
+    padding-bottom: 20px; 
+    box-shadow: 5px 3px 3px rgb(183, 180, 180);
+}

@@ -1,5 +1,6 @@
 import { useEffect, useState, useRef } from "react";
 import { Link, Outlet, useLocation, useParams } from "react-router-dom";
+import css from './GetMovieDetails.module.css';
 
 const API_KEY = 'ad2e3abfb56d0bd03c35663dc9829f67';
 
@@ -38,20 +39,23 @@ const GetMovieDetails = () => {
     <>
       <Link to={locationRef.current}>Go back</Link>
       {movie && (
-        <div className="movei_info">
-          {movie.poster_path === null ? (
-            <img
-              src={`https://as2.ftcdn.net/v2/jpg/02/51/95/53/1000_F_251955356_FAQH0U1y1TZw3ZcdPGybwUkH90a3VAhb.jpg`}
-              alt="Movie poster"
-              width={250}
-            />
-          ) : (
-            <img
-              src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-              alt="Movie poster"
-              width={250}
-            />
-          )}
+        <div className={css.movie_info}>
+          <div className={css.image}>
+            {movie.poster_path === null ? (
+              <img
+                src={`https://as2.ftcdn.net/v2/jpg/02/51/95/53/1000_F_251955356_FAQH0U1y1TZw3ZcdPGybwUkH90a3VAhb.jpg`}
+                alt="Movie poster"
+                width={250}
+              />
+            ) : (
+              <img
+                src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                alt="Movie poster"
+                width={250}
+              />
+            )}
+          </div>
+          
           <div>
             <h2>{movie.original_title}</h2>
             {movie.vote_average === 0 ? (
@@ -64,7 +68,7 @@ const GetMovieDetails = () => {
 
             <h3>Overview</h3>
             {movie.overview ? (
-              <div>{movie.overview}</div>
+              <p>{movie.overview}</p>
             ) : (
               <div>No overview added</div>
             )}
@@ -82,7 +86,7 @@ const GetMovieDetails = () => {
         </div>
       )}
       <h3>Additional information</h3>
-      <ul>
+      <ul className={css.addinf}>
         <li>
           <Link to="cast">Cast</Link>
         </li>
