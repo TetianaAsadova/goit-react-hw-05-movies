@@ -11,14 +11,14 @@ export const App = () => {
   const navigate = useNavigate();
 
   return (
-    <div>  
+     <> 
       <Routes>
-        <Route path="/" element={<Layout />}>
+        <Route path='/' element={<Layout />}>
           <Route index element={<Home />} />
-          <Route path="/movies" element={<Movies />}>
-            <Route path=":id" element={<GetMovieDetails />}>
-              <Route path="cast" element={<GetMovieCredits />} />
-              <Route path="reviews" element={<GetMovieRevievs />} />
+          <Route path='movies' element={<Movies />}>
+            <Route path=':id' element={<GetMovieDetails />}>
+              <Route path='cast' element={<GetMovieCredits />} />
+              <Route path='reviews' element={<GetMovieRevievs />} />
             </Route>
           </Route>
         </Route>
@@ -33,6 +33,6 @@ export const App = () => {
         ></Route>
       </Routes>
       
-    </div>
+    </>
   );
 };

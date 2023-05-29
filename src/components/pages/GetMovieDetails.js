@@ -1,5 +1,10 @@
 import { useEffect, useState, useRef } from "react";
-import { Link, Outlet, useLocation, useParams } from "react-router-dom";
+import {
+  Link,
+  Outlet,
+  useLocation,
+  useParams
+} from "react-router-dom";
 import css from './GetMovieDetails.module.css';
 
 const API_KEY = 'ad2e3abfb56d0bd03c35663dc9829f67';
@@ -12,9 +17,10 @@ const GetMovieDetails = () => {
   
   const location = useLocation();
 
-  // console.log(`location`, location);
+  console.log(`location`, location);
+  console.log(`movie`, movie);
 
-  const locationRef = useRef(location.state?.from??'/');
+  const locationRef = useRef(location.state?.from ?? '/');
 
   useEffect(() => {
     const fetchMovie = async () => {

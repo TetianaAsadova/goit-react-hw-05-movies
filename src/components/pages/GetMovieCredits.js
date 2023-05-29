@@ -16,11 +16,11 @@ const GetMovieCredits = () => {
         );
         const data = await response.json();
           
-          console.log(`data`, data);
+          // console.log(`data`, data);
 
         setCasts(data.cast);
-      } catch (err) {
-        console.error(err);
+      } catch (error) {
+        console.error(error);
       }
     };
 
