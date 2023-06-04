@@ -17,8 +17,8 @@ const GetMovieDetails = () => {
   
   const location = useLocation();
 
-  console.log(`location`, location);
-  console.log(`movie`, movie);
+  // console.log(`location`, location);
+  // console.log(`movie`, movie);
 
   const locationRef = useRef(location.state?.from ?? '/');
 

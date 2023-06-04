@@ -4,13 +4,13 @@ import { Link } from 'react-router-dom';
 const API_KEY = 'ad2e3abfb56d0bd03c35663dc9829f67';
 
 const Home = () => {
-    const [trendingMovies, setTrendingMovies] = useState([]);   
+    const [trendingMovies, setTrendingMovies] = useState([]);
 
     useEffect(() => {
         const fetchMovies = async () => {
             try {
                 const response = await fetch(
-                `https://api.themoviedb.org/3/trending/movie/day?api_key=${API_KEY}`
+                    `https://api.themoviedb.org/3/trending/movie/day?api_key=${API_KEY}`
                 );
                 const data = await response.json();
                 setTrendingMovies(data.results);
@@ -21,8 +21,7 @@ const Home = () => {
 
         fetchMovies();
     }, []);
-
-     console.log(`trendingMovies`, trendingMovies);    
+ 
     return (
         <div>
             <h1>Trends of day</h1>
@@ -34,7 +33,7 @@ const Home = () => {
                 ))}
             </ul>
         </div>
-    )
-}
+    );
+};
 
 export default Home;

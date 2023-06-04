@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { ColorRing } from 'react-loader-spinner';
 import {
     useParams,
@@ -14,28 +14,26 @@ const Movies = () => {
     const [loading, setLoading] = useState(false);
     const [movies, setMovies] = useState([]);
     const { id } = useParams();
-    let [searchParams, setSearchParams] = useSearchParams();
+    const [searchParams, setSearchParams] = useSearchParams();
+
     const value = searchParams.get('query') ?? '';
     const location = useLocation();
 
-    console.log(`searchParams.get('query')1=`, searchParams.get('query'));
-    console.log(`id`, id);
-    console.log(`location`, location);
-    console.log(`value`, value);
 
     const handleChange = event => {
         if (event.target.value === '') {
-        return setSearchParams({});
-        } else {
-            console.log(`event.target.value`, event.target.value);
-            console.log(`searchParams.get('query')2=`, searchParams.get('query'));
-
-            setSearchParams({ query: event.target.value });
-        }   
+            return setSearchParams({});
+        }
+        // console.log(`event`, event);
+        setSearchParams({ query: event.target.value });
     };
+
+    // console.log(`value`, value);
+    
 
     const handleSubmit = async event => {
         event.preventDefault();
+           
         if (value !== '') {
             setLoading(true);
             try {
@@ -55,21 +53,31 @@ const Movies = () => {
         }
     };
 
+    // useEffect(() => {
+    //     if (value !== '') {
+    //         handleSubmit({
+    //             preventDefault: () => {}
+    //             // loading: true
+    //         });
+    //     }
+    // }, [value, handleSubmit]);
+    
     return (
         <div>
             {id ? (
                 <Outlet />
-            ) : (
-                <>
+            ) : ( 
+                <>                  
                     <form onSubmit={handleSubmit}>
                         <input
                             type="text"
                             value={value}
                             autoComplete="off"
+                            // placeholder={value}
                             onChange={handleChange}
                         />
                         <button type="submit">Search</button>
-                    </form>        
+                    </form>       
                     {loading && (
                         <div>
                             <ColorRing />
@@ -84,14 +92,11 @@ const Movies = () => {
                         </li>
                         ))}
                     </ul>     
-               </>        
+                </>      
             )
             }
-        </div>
-       
-        
-    )
-    
+        </div>    
+    )    
 }
 
 export default Movies;
