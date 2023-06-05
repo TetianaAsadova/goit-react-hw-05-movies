@@ -19,7 +19,6 @@ const Movies = () => {
     const value = searchParams.get('query') ?? '';
     const location = useLocation();
 
-
     const handleChange = event => {
         if (event.target.value === '') {
             return setSearchParams({});
@@ -54,9 +53,7 @@ const Movies = () => {
 
     useEffect(() => {
         if (value !== '') {
-            handleSubmit({
-                preventDefault: () => {}
-            });
+            handleSubmit({ preventDefault: () => {} });
         }
     }, []);
     
