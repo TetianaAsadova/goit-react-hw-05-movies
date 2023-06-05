@@ -52,7 +52,7 @@ const Movies = () => {
     };
 
     useEffect(() => {
-        // console.log(`valueuse`, value);
+        console.log(`valueuse`, value);
         if (value !== '') {
             handleSubmit({ preventDefault: () => {} });
         }
