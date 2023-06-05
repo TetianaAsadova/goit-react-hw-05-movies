@@ -28,9 +28,8 @@ const Movies = () => {
         setSearchParams({ query: event.target.value });
     };
 
-    // console.log(`value`, value);
+    console.log(`value`, value);
     
-
     const handleSubmit = async event => {
         event.preventDefault();
            
@@ -53,14 +52,13 @@ const Movies = () => {
         }
     };
 
-    // useEffect(() => {
-    //     if (value !== '') {
-    //         handleSubmit({
-    //             preventDefault: () => {}
-    //             // loading: true
-    //         });
-    //     }
-    // }, [value, handleSubmit]);
+    useEffect(() => {
+        if (value !== '') {
+            handleSubmit({
+                preventDefault: () => {}
+            });
+        }
+    }, []);
     
     return (
         <div>
