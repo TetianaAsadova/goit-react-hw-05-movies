@@ -27,7 +27,7 @@ const Movies = () => {
         setSearchParams({ query: event.target.value });
     };
 
-    console.log(`value`, value);
+    // console.log(`value`, value);
     
     const handleSubmit = async event => {
         event.preventDefault();
@@ -52,7 +52,7 @@ const Movies = () => {
     };
 
     useEffect(() => {
-        console.log(`valueuse`, value);
+        // console.log(`valueuse`, value);
         if (value !== '') {
             handleSubmit({ preventDefault: () => {} });
         }
