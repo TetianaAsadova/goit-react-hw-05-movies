@@ -52,9 +52,11 @@ const Movies = () => {
     };
 
     useEffect(() => {
+        console.log(`valueuse`, value);
         if (value !== '') {
             handleSubmit({ preventDefault: () => {} });
         }
+
     }, []);
     
     return (
@@ -62,8 +64,8 @@ const Movies = () => {
             {id ? (
                 <Outlet />
             ) : ( 
-                <>                  
-                    <form onSubmit={handleSubmit}>
+                             
+                <form onSubmit={handleSubmit}>
                         <input
                             type="text"
                             value={value}
@@ -72,7 +74,7 @@ const Movies = () => {
                             onChange={handleChange}
                         />
                         <button type="submit">Search</button>
-                    </form>       
+                        
                     {loading && (
                         <div>
                             <ColorRing />
@@ -87,7 +89,7 @@ const Movies = () => {
                         </li>
                         ))}
                     </ul>     
-                </>      
+                 </form>      
             )
             }
         </div>    
