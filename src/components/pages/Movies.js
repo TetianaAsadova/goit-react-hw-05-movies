@@ -54,7 +54,9 @@ const Movies = () => {
     useEffect(() => {
         console.log(`valueuse`, value);
         if (value !== '') {
-            handleSubmit({ preventDefault: () => {} });
+            handleSubmit({ preventDefault: () => { } });
+            // react-hooks/exhaustive-deps
+            
         }
 
     }, []);
